@@ -1,0 +1,45 @@
+
+<!-- studio view for learning objectives xblock -->
+<div class="HL_Activity_xblock_studio editor-with-buttons">
+    <!-- HTML editor tab -->
+    <div id="HL_Activity_xblock_content_wrapper">
+        <div class="modal_tab_view modal_tab_editor" data-mode="editor">
+
+            <div class="document-editor">
+                <div class="document-editor__toolbar"></div>
+                <div class="document-editor__editable-container">
+                    <div id="HL_Text_editorBody" class="document-editor__editable">
+                        {{ self.content|safe }}
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <!-- XBlock options -->
+        <div class="modal_tab_view modal_tab_settings" data-mode="settings">
+    		<!-- this seems like the form for modifying the model fields -->
+            <p class="chx_desc">Display Name</p>
+            <input type="text" class="settings_display_name" value="{{ self.display_name }}">
+        </div>
+
+    </div>
+
+    <div class="xblock-actions">
+        <ul>
+          <li class="action-item">
+            <a id="save_LOs" href="#" class="button action-primary save-button">Save</a>
+          </li>
+          <li class="action-item">
+            <a href="#" class="button cancel-button">Cancel</a>
+          </li>
+        </ul>
+      </div>
+
+
+</div>
+
+<!-- define the xblock actions (the markup is important) -->
