@@ -35,6 +35,7 @@ from xblock.fields import (
 # from xblock.fragment import Fragment #DEPRECIATED
 from web_fragments.fragment import Fragment
 
+# import the hydrolearn custom text xblock
 from hl_text import HLCustomTextXBlock
 
 

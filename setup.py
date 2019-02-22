@@ -37,5 +37,5 @@ setup(
             'hl_learning_activities = hl_learning_activities:HL_LearningObjs_XBlock',
         ]
     },
-    package_data=package_data("hl_learning_objs", ["static", "public", "templates"]),
+    package_data=package_data("hl_learning_activities", ["static", "public", "templates"]),
 )
