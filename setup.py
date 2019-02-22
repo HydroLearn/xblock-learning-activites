@@ -34,7 +34,7 @@ setup(
     ],
     entry_points={
         'xblock.v1': [
-            'hl_learning_activities = hl_learning_activities:HL_LearningObjs_XBlock',
+            'hl_learning_activities = hl_learning_activities:HL_LearningActivity_XBlock',
         ]
     },
     package_data=package_data("hl_learning_activities", ["static", "public", "templates"]),
