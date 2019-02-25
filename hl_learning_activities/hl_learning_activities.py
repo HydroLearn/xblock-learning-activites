@@ -42,7 +42,7 @@ from hl_text import HLCustomTextXBlock
 class HL_LearningActivity_XBlock(HLCustomTextXBlock):
 
     # modify path to the custom starter template for empty xblocks
-    empty_template = 'templates/initial_learning_activity_template.html'
+    #empty_template = 'templates/initial_learning_activity_template.html'
 
     display_name = String(
         display_name="Learning Activity",
@@ -50,3 +50,6 @@ class HL_LearningActivity_XBlock(HLCustomTextXBlock):
         scope=Scope.settings,
         default="Learning Activity"
     )
+
+    def get_empty_template(self, context={}):
+        return render_template('templates/initial_learning_activity_template.html', context)
