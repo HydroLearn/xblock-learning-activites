@@ -36,10 +36,10 @@ from xblock.fields import (
 from web_fragments.fragment import Fragment
 
 # import the hydrolearn custom text xblock
-from hl_text import HLCustomTextXBlock
+from hl_text import hl_text_XBlock
 
 
-class HL_LearningActivity_XBlock(HLCustomTextXBlock):
+class HL_LearningActivity_XBlock(hl_text_XBlock):
 
     # modify path to the custom starter template for empty xblocks
     #empty_template = 'templates/initial_learning_activity_template.html'
