@@ -41,6 +41,9 @@ from hl_text import HLCustomTextXBlock
 
 class HL_LearningActivity_XBlock(HLCustomTextXBlock):
 
+    # modify path to the custom starter template for empty xblocks
+    empty_template = 'templates/initial_learning_activity_template.html'
+
     display_name = String(
         display_name="Learning Activity",
         help="This name appears in the horizontal navigation at the top of the page",
