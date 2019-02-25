@@ -53,7 +53,7 @@ class HL_LearningActivity_XBlock(HLCustomTextXBlock):
 
     def get_empty_template_name(self):
         return 'templates/initial_learning_activity_template.html'
-        
 
-    # def get_empty_template(self, context={}):
-    #     return render_template(, context)
+
+    def get_empty_template(self, context={}):
+        return super(HL_LearningActivity_XBlock, self).get_empty_template(context)
