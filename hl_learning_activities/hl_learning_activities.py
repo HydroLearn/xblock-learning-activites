@@ -62,7 +62,7 @@ class HL_LearningActivity_XBlock(HLCustomTextXBlock):
 
         # add the custom initialization code for the LMS view and initialize it
         fragment.add_javascript(load_resource('static/js/learning_activity_script.js'))
-        # fragment.initialize_js('Learning_Activity_Studio')
+        fragment.initialize_js('Learning_Activity_Studio')
 
         return fragment
 
