@@ -53,3 +53,23 @@ class HL_LearningActivity_XBlock(HLCustomTextXBlock):
 
     def get_empty_template(self, context={}):
         return render_template('templates/initial_learning_activity_template.html', context)
+
+    def studio_view(self, context):
+
+        fragment = super(HL_LearningActivity_XBlock, self).studio_view(context)
+
+        fragment.add_css(load_resource('static/css/learning_activity_styling.css'))
+
+        # add the custom initialization code for the LMS view and initialize it
+        fragment.add_javascript(load_resource('static/js/learning_activity_script.js'))
+        # fragment.initialize_js('Learning_Activity_Studio')
+
+        return fragment
+
+
+    def student_view(self, context):
+
+        fragment = super(HL_LearningActivity_XBlock, self).student_view(context)
+
+
+        return fragment
