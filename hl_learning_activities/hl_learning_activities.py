@@ -78,7 +78,7 @@ class HL_LearningActivity_XBlock(StudioContainerXBlockMixin, XBlock):
         fragment = Fragment()
 
         fragment.add_css(load_resource('static/css/hl_learning_activity-lms.css'))
-        fragment.add_content(render_template('templates/hl_learning_activity-lms.html', content))
+        fragment.add_content(render_template('templates/hl_learning_activity-lms.html', context))
         fragment.add_javascript(load_resource('static/js/hl_learning_activity-lms.js'))
         fragment.initialize_js('Learning_Activity')
 
