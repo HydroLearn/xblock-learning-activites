@@ -1,4 +1,4 @@
-"""Setup for xblock-hl-learning-activities XBlock."""
+"""Setup for hl-learning-activities XBlock."""
 
 import os
 from setuptools import setup, find_packages
@@ -32,6 +32,7 @@ PREREQs = [
 BLOCKS = [
     # the main learning activity block
     'hl_learning_activities = hl_learning_activities:HL_LearningActivity_XBlock',
+    'hl_learning_activities_advanced = hl_learning_activities:HL_LearningActivity_advanced_XBlock',
 
     # child blocks
     'la_intro = hl_learning_activities.child_blocks:la_intro',
