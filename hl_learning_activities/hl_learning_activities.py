@@ -62,15 +62,6 @@ log = logging.getLogger(__name__)
 from xblockutils.resources import ResourceLoader
 loader = ResourceLoader(__name__)
 
-# import the hydrolearn custom text xblock
-# from hl_text import hl_text_XBlock
-
-
-# TODO: this block should be migrated to it's own python module
-#       this will potentially alleviate some naming issues
-#       but will require some shared resources between modules
-
-
 
 # origional implementation as just a text block (templated text block)
 class HL_LearningActivity_XBlock(hl_text_XBlock):
