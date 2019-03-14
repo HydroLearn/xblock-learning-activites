@@ -12,13 +12,7 @@ Author : Cary Rivet
 
 """
 
-import urllib, datetime, json, urllib2
-from .utils import render_template, load_resource, resource_string
-from django.template import Context, Template
-
-# imports for content indexing support
-import re
-from xmodule.util.misc import escape_html_characters
+import urllib, datetime, json, urllib2, logging
 
 from xblock.core import XBlock
 from xblock.fields import (
@@ -32,13 +26,44 @@ from xblock.fields import (
         ReferenceList, # list of references to other xblocks
     )
 
-# from xblock.fragment import Fragment #DEPRECIATED
-from web_fragments.fragment import Fragment
 
-# import the hydrolearn custom text xblock
+
+
+# including nested xblock container
+#       source references for these:
+#           https://github.com/edx/xblock-utils/blob/master/xblockutils/studio_editable.py
+#
+from xblockutils.settings import XBlockWithSettingsMixin
+from xblockutils.studio_editable import (
+    StudioEditableXBlockMixin,
+    #StudioContainerXBlockMixin,
+    StudioContainerWithNestedXBlocksMixin,
+    NestedXBlockSpec,
+    XBlockWithPreviewMixin,
+)
+
 from hl_text import hl_text_XBlock
 
+from web_fragments.fragment import Fragment
 
+# they do this in the mentoring block which implements this type of system
+#   so i guess i have to as well right?
+#       https://github.com/open-craft/problem-builder/blob/master/problem_builder/mentoring.py
+#
+# Make '_' a no-op so we can scrape strings
+def _(text):
+    return text
+
+
+# initialize the log
+log = logging.getLogger(__name__)
+
+# initialize the resource loader
+from xblockutils.resources import ResourceLoader
+loader = ResourceLoader(__name__)
+
+
+# origional implementation as just a text block (templated text block)
 class HL_LearningActivity_XBlock(hl_text_XBlock):
 
     # modify path to the custom starter template for empty xblocks
@@ -48,26 +73,23 @@ class HL_LearningActivity_XBlock(hl_text_XBlock):
         display_name="Learning Activity",
         help="This name appears in the horizontal navigation at the top of the page",
         scope=Scope.settings,
-        default="Learning Activity"
+        default="Learning Activity (Template)"
     )
 
     def get_empty_template(self, context={}):
-        return render_template('templates/initial_learning_activity_template.html', context)
+        return loader.render_django_template('templates/initial_learning_activity_template.html', context)
 
     def studio_view(self, context):
 
         fragment = super(HL_LearningActivity_XBlock, self).studio_view(context)
 
-        fragment.add_css(load_resource('static/css/learning_activity_styling.css'))
-        fragment.add_javascript(load_resource('static/js/learning_activity_script.js'))
-        fragment.initialize_js('Learning_Activity_Studio')
+        # fragment.add_css(loader.load_unicode('static/css/learning_activity_styling.css'))
+        # fragment.add_javascript(loader.load_unicode('static/js/learning_activity_script.js'))
+        # fragment.initialize_js('Learning_Activity_Studio')
 
         return fragment
 
 
-    def student_view(self, context):
-
-        fragment = super(HL_LearningActivity_XBlock, self).student_view(context)
 
 
-        return fragment
+
