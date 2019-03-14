@@ -32,11 +32,16 @@ PREREQs = [
 BLOCKS = [
     # the main learning activity block
     'hl_learning_activities = hl_learning_activities:HL_LearningActivity_XBlock',
-    'hl_learning_activities_advanced = hl_learning_activities:HL_LearningActivity_advanced_XBlock',
 
-    # child blocks
-    'la_intro = hl_learning_activities.child_blocks:la_intro',
-    'la_step = hl_learning_activities.child_blocks:la_step',
+    # advanced learning activity block
+    # 'hl_learning_activities_advanced = hl_learning_activities_advanced:HL_LearningActivity_advanced_XBlock',
+
+        # advanced's children
+        # 'la_intro = hl_learning_activities_advanced.child_blocks:la_intro',
+        # 'la_step = hl_learning_activities_advanced.child_blocks:la_step',
+
+    # experiment
+    # "experiment = experiments:experiment"
 ]
 
 setup(
@@ -46,6 +51,8 @@ setup(
     description='Custom Xblock for generating a learning activity for use in HydroLearn platform. (using hl_text)',
     packages=[
         'hl_learning_activities',
+        # 'hl_learning_activities_advanced',
+        # 'experiments',
     ],
 
     install_requires=PREREQs,

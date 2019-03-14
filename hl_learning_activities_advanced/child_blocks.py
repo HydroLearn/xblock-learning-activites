@@ -1,6 +1,7 @@
-from .utils import render_template, load_resource, resource_string
+
 from hl_text import hl_text_XBlock
 
+from xblockutils.resources import ResourceLoader
 from xblock.core import XBlock
 from xblock.fields import (
         Scope,
@@ -12,6 +13,8 @@ from xblock.fields import (
         Reference, # reference to another xblock
         ReferenceList, # list of references to other xblocks
     )
+
+loader = ResourceLoader(__name__)
 
 #############################################
 # Child block types
@@ -27,7 +30,7 @@ class la_intro(hl_text_XBlock):
         )
 
     def get_empty_template(self, context={}):
-        return render_template('templates/parts/intro_template.html', context)
+        return loader.render_template('templates/parts/intro_template.html', context)
 
 
 
@@ -41,7 +44,7 @@ class la_step(hl_text_XBlock):
         )
 
     def get_empty_template(self, context={}):
-        return render_template('templates/parts/step_template.html', context)
+        return loader.render_template('templates/parts/step_template.html', context)
 
 
 class la_checkin(XBlock):
