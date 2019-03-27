@@ -20,7 +20,7 @@ def package_data(pkg, roots):
     return {pkg: data}
 
 # Constants #########################################################
-VERSION = '0.1'
+VERSION = '0.1.1'
 
 # xblocks  #########################################################
 PREREQs = [
@@ -30,11 +30,11 @@ PREREQs = [
 ]
 
 BLOCKS = [
-    # the main learning activity block
-    'hl_learning_activities = hl_learning_activities:HL_LearningActivity_XBlock',
+    # the text template version of learning activity xblock (hl_text)
+    'hl_learning_activities_text = hl_learning_activities:HL_LearningActivity_XBlock',
 
     # advanced learning activity block
-    # 'hl_learning_activities_advanced = hl_learning_activities_advanced:HL_LearningActivity_advanced_XBlock',
+    # 'hl_learning_activities = hl_learning_activities_advanced:HL_LearningActivity_advanced_XBlock',
 
         # advanced's children
         # 'la_intro = hl_learning_activities_advanced.child_blocks:la_intro',
@@ -48,7 +48,7 @@ setup(
     name='xblock-hl_learning_activities',
     version=VERSION,
     author="cRivet",
-    description='Custom Xblock for generating a learning activity for use in HydroLearn platform. (using hl_text)',
+    description='Custom Xblocks for generating a learning activity for use in HydroLearn platform.',
     packages=[
         'hl_learning_activities',
         # 'hl_learning_activities_advanced',
