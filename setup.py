@@ -20,13 +20,13 @@ def package_data(pkg, roots):
     return {pkg: data}
 
 # Constants #########################################################
-VERSION = '0.1.1'
+VERSION = '1.0.0'
 
 # xblocks  #########################################################
 PREREQs = [
     'XBlock',
-    'xblock-hl-text',
     'xblock-utils',
+    'hl-text-xblock',
 ]
 
 BLOCKS = [
@@ -45,7 +45,7 @@ BLOCKS = [
 ]
 
 setup(
-    name='xblock-hl_learning_activities',
+    name='hl-learning-activities-xblock',
     version=VERSION,
     author="cRivet",
     description='Custom Xblocks for generating a learning activity for use in HydroLearn platform.',

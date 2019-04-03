@@ -89,7 +89,15 @@ class HL_LearningActivity_XBlock(hl_text_XBlock):
 
         return fragment
 
+    # workbench while developing your XBlock.
+    @staticmethod
+    def workbench_scenarios():
+        """A canned scenario for display in the workbench."""
+        return [
+            ("HL Learning Activity text XBlock",
+             """<hl_learning_activities_text/>
+             """),
 
-
+        ]
 
 
