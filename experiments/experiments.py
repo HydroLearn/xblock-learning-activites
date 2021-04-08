@@ -5,7 +5,7 @@
     currently experimenting with nestable
 """
 
-import urllib, datetime, json, urllib2, logging
+import datetime, json, urllib.request, urllib.error, urllib.parse, logging
 
 from xblock.core import XBlock
 from xblock.fields import (

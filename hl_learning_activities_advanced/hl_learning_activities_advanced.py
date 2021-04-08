@@ -7,7 +7,7 @@
 
 """
 
-import urllib, datetime, json, urllib2, logging
+import datetime, json, urllib.request, urllib.error, urllib.parse, logging
 
 from xblock.core import XBlock
 from xblock.fields import (
@@ -117,8 +117,8 @@ class HL_LearningActivity_advanced_XBlock(
         fragment = Fragment()
 
 
-        child_content = u""
-        instructions = u""
+        child_content = ""
+        instructions = ""
 
         ## TODO: make this better
 
@@ -131,7 +131,7 @@ class HL_LearningActivity_advanced_XBlock(
             child = self.runtime.get_block(child_id)
 
             if child is None:
-                child_content += u"<p>[{}]</p>".format(self._(u"Error: Unable to load child component."))
+                child_content += "<p>[{}]</p>".format(self._("Error: Unable to load child component."))
 
             if isinstance(child, la_step):
                 child_fragment = child.render('student_view', context)
@@ -209,7 +209,7 @@ class HL_LearningActivity_advanced_XBlock(
                 single_instance=True,
                 disabled=False,
                 category='la_intro',
-                label=_(u"Introduction"),
+                label=_("Introduction"),
                 # boilerplate='studio_default',
             ))
         except ImportError:
@@ -224,7 +224,7 @@ class HL_LearningActivity_advanced_XBlock(
                 single_instance=False,
                 disabled=False,
                 category='la_step',
-                label=_(u"Activity Step"),
+                label=_("Activity Step"),
                 # boilerplate='studio_default',
             ))
         except ImportError:
@@ -240,7 +240,7 @@ class HL_LearningActivity_advanced_XBlock(
                 hl_text_XBlock,
                 single_instance=False,
                 disabled=False,
-                label=_(u"Text"),
+                label=_("Text"),
                 # boilerplate='hl-text-boiler',
             ))
         except ImportError:
