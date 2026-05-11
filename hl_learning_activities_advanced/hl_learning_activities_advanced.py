@@ -84,7 +84,7 @@ class HL_LearningActivity_advanced_XBlock(
         display_name="Display Name",
         help="This name appears in the horizontal navigation at the top of the page",
         scope=Scope.settings,
-        default="Learning Activity (Advanced)"
+        default="Learning Activity (Depreciated)"
     )
 
     editable_fields = ['display_name']

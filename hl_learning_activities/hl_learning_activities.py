@@ -73,7 +73,7 @@ class HL_LearningActivity_XBlock(hl_text_XBlock):
         display_name="Learning Activity",
         help="This name appears in the horizontal navigation at the top of the page",
         scope=Scope.settings,
-        default="Learning Activity (Template)"
+        default="Learning Activity (Depreciated)"
     )
 
     def get_empty_template(self, context={}):
